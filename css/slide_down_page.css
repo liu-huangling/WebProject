@@ -1,0 +1,169 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+section{
+  width: 100%;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.mouse{
+  width: 20px;
+  height: 35px;
+  border: 2px solid white;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  position: relative;
+  cursor: pointer;
+}
+.mouse::before{
+  content: '';
+  width: 3px;
+  height: 3px;
+  border: 1px solid white;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 37%;
+  animation: mouse 3s infinite ; 
+}
+@keyframes mouse{
+  0%{
+    top: 10%;
+    opacity: 1;
+  }
+  80%{
+    transform: scale(0.2);
+    top: 40%;
+    opacity: 0;
+  }
+}
+
+
+.inbox-img{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.box-img{
+  position: absolute;
+  z-index: 3;
+   opacity: 0;
+}
+
+.img1{
+  top: 10%;
+  left: 5%;
+  width: 350px;
+  height: 250px;
+}
+.img2{
+  top: 40%;
+  left: 40%;
+  width: 250px;
+  height: 250px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+.img3{
+  top: 80%;
+  left: 75%;
+  width: 250px;
+  height: 400px;
+  clip-path: none;
+  border-radius: 25px;
+}
+
+.box{
+  position: absolute;
+  z-index: 2;
+   opacity: 0;
+}
+.inbox1{
+  width: 450px;
+  height: 25px;
+  border: 1px solid #fff;
+  top: 50%;
+  left: 0;
+}
+.inbox2{
+  width: 750px;
+  height: 25px;
+  background-color: #fff;
+  top: 60%;
+  left: 0;
+}
+.inbox3{
+  top: 82%;
+  left: 76%;
+  width: 250px;
+  height: 400px;
+  background-color: #ffffffeb;
+  border-radius: 25px;
+}
+
+.box-img.animation{
+  animation: aniImg 1s ease-in 1 forwards; 
+  animation-delay : 1s;
+}
+.box.animation{
+  animation: aniDiv 1s ease-in 1 forwards; 
+  animation-delay : 0;
+}
+/*
+  forwards 參數，當動畫結束時，可以停在最後一個影格上。
+*/
+
+svg{
+  color: white;
+  width: 50px;
+  height: 30px;
+  padding-bottom: 15px;
+  cursor: pointer;
+  animation: totop 3s infinite ; 
+}
+
+@keyframes totop{
+  0%{
+    padding-bottom: 15px;
+    opacity: 1;
+  }
+  80%{
+    padding-bottom: 30px;
+    opacity: 0;
+  }
+  100%{
+    padding-bottom: 15px;
+    opacity: 0;
+  }
+}
+ /* 放大縮小 */
+@keyframes aniImg{
+  from{
+    opacity: 0;
+    transform:scale(0)
+  }
+  to{
+    opacity: 1;
+    transform:scale(1)
+  }
+}
+ /* 右到左 */
+@keyframes aniDiv{
+  from{
+    opacity: 0;
+    transform: translate(200%,0)
+  }
+  to{
+    opacity: 1;
+    transform: translate(0%,0)
+  }
+}
+
